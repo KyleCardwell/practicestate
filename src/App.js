@@ -5,6 +5,7 @@ import { Link, Switch, Route } from 'react-router-dom'
 import MyFeed from './components/MyFeed';
 import dummyData from './data/dumyData';
 import NavBar from './components/NavBar';
+import MySavedArticles from './components/MySavedArticles';
 
 
 function App() {
@@ -13,8 +14,17 @@ const [ myFeedArticles, setMyFeedArticles ] = useState(dummyData)
 const  [mySavedArticles, setMySavedArticles ] = useState([])
 
 const saveArticle = (article) => {
-  setMySavedArticles([...mySavedArticles, article])
-  console.log(mySavedArticles)
+
+  // if ( !('key' in mySavedArticles)) {
+  // setMySavedArticles([...mySavedArticles, article])
+  // console.log(mySavedArticles)
+  // }
+
+  if (!('title' in mySavedArticles)) {
+    setMySavedArticles([...mySavedArticles, article])
+  } else {
+    setMySavedArticles([...mySavedArticles])
+  }
 }
 
   return (
@@ -29,7 +39,9 @@ const saveArticle = (article) => {
       </Route>
 
       <Route path="/mySavedArticles">
-        <MyFeed mySavedArticles={mySavedArticles}></MyFeed>
+        <MySavedArticles
+          mySavedArticles={mySavedArticles}    
+        />
       </Route>
       
     </div>

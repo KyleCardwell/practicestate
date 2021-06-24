@@ -5,7 +5,7 @@ export default function MySavedArticles(props) {
 
     const { mySavedArticles } = props;
 
-    console.log("What now>", mySavedArticles)
+    // console.log("What now>", mySavedArticles)
     return (
         <div>
 
