@@ -11,19 +11,14 @@ import MySavedArticles from './components/MySavedArticles';
 function App() {
 
 const [ myFeedArticles, setMyFeedArticles ] = useState(dummyData)
-const  [mySavedArticles, setMySavedArticles ] = useState([])
+const [mySavedArticles, setMySavedArticles ] = useState([])
 
 const saveArticle = (article) => {
 
-  // if ( !('key' in mySavedArticles)) {
-  // setMySavedArticles([...mySavedArticles, article])
-  // console.log(mySavedArticles)
-  // }
+  const filteredArticles = mySavedArticles.filter(savedArticle => savedArticle.title === article.title)
 
-  if (!('title' in mySavedArticles)) {
+  if (filteredArticles.length === 0) {
     setMySavedArticles([...mySavedArticles, article])
-  } else {
-    setMySavedArticles([...mySavedArticles])
   }
 }
 
