@@ -12,7 +12,9 @@ export default function MySavedArticles(props) {
             {
                 mySavedArticles.map(article => {
                     return (
-                        <ArticleCard key={article.title} article={article}></ArticleCard>
+                        <div className="oneArticle" key={article.title}>
+                            <ArticleCard article={article}></ArticleCard>
+                        </div>
                     )
                 })
             }
